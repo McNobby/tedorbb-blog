@@ -6,6 +6,9 @@
           box-sizing: border-box;
   font-family: 'Lato', sans-serif;
   color: #ddd;
+}
+
+body {
   background-color: #404444;
 }
 
