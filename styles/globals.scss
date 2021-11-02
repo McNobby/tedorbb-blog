@@ -17,7 +17,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 93vh;
     flex-direction: column;
     h1{
         font-size: 40px;
@@ -34,3 +34,14 @@ body{
         text-decoration: none;
     }
 }
+
+nav{
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a{
+        text-decoration: none;
+    }
+}
+
