@@ -19,6 +19,8 @@
     width: 60%;
     margin: auto;
     display: grid;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 .title{

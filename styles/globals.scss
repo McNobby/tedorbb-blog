@@ -4,14 +4,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
+
     font-family: 'Lato', sans-serif;
     color: #ddd;
 }
 
 body{
     background-color: rgb(64, 68, 68);
-
 }
+
 
 .Mainpage{
     display: flex;
@@ -19,14 +21,17 @@ body{
     align-items: center;
     height: 93vh;
     flex-direction: column;
+    padding: 20px;
+    text-align: center;
     h1{
-        font-size: 40px;
+        font-size:2rem;
+        width: 100%;
     }
 }
 
 .pagePanel{
     margin-top: 40px;
-    height: 120px;
+    height: 150px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -45,3 +50,19 @@ nav{
     }
 }
 
+footer{
+    height: 30vh;
+    background-color: rgb(49, 53, 53);
+    border-top: solid 1px rgb(126, 125, 125);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28vw, 1fr));
+    grid-gap: 20px;
+    section{
+        width: 100%;
+        // background-color: green;
+        .wrap{
+            margin-top: 20px;
+        }
+    }
+}
