@@ -46,6 +46,7 @@ const Interesser = () => {
                 <div className={styles.gridElement}>
                     <h1>Test</h1>
                     <h2>Hallo verden!</h2>
+                    <h4>Hvordan går det?</h4>
                 </div>
             </div>
         </motion.div>
