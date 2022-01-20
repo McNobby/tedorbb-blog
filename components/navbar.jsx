@@ -14,7 +14,6 @@ const Navbar = () => {
                 //user is logged in
                 setLoggedIn(true);
             } else {
-                //do nothing atm
                 setLoggedIn(false);
             }
         });
