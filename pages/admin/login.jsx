@@ -36,7 +36,9 @@ const variants = {
       show:{
           scale: 1,
           transition:{
-              type: "spring"
+              type: "spring",
+              mass: 0.5,
+              damping: 5,
           }
       }
   }
