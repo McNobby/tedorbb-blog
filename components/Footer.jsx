@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
 const Footer = () => {
     return (
         <footer>
             <section>
                 <h1>Teodor Berntsen Bøe</h1>
-                    <a href="https://tedorbb.com"><h3>tedorbb.com</h3></a>
+                <a href="https://tedorbb.com">
+                    <h3>tedorbb.com</h3>
+                </a>
             </section>
             <section>
                 <h1>Kontakt info</h1>
@@ -15,14 +17,20 @@ const Footer = () => {
                 </div>
                 <div className="wrap">
                     <h3>Github:</h3>
-                    <a href="https://github.com/McNobby" target="_blank" rel="noopener noreferrer" >Github - McNobby</a>
+                    <a
+                        href="https://github.com/McNobby"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Github - McNobby
+                    </a>
                 </div>
             </section>
             <section>
                 <h1></h1>
             </section>
         </footer>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;
