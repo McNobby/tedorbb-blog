@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../../styles/Home.module.scss'
 import { motion } from 'framer-motion'
+import ArticleThumbnail from '../../components/ArticleThumbnails'
 
 const variants = {
     hidden:{
@@ -33,7 +34,12 @@ const Prosjekter = () => {
         animate="show"
         exit="exit"
         >
-            <h1>Prosjekter</h1>
+            <div className={styles.title}>
+                <h1>Prosjekter</h1>
+            </div>
+
+            <ArticleThumbnail site="prosjekter" />
+
         </motion.div>
     )
 }

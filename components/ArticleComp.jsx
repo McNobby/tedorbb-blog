@@ -3,18 +3,17 @@ import React from 'react';
 
 const ArticleComp = ({info}) => {
 
-    const {Title, Body} = info
+    const {title, body} = info
 
-    const bodyEl = Body.map(e => {
+    const bodyEl = body.map(e => {
         return(
-            <p>{e}</p>
+            <p key={e} >{e}</p>
         )
     })
 
 
   return <div className={styles.article}>
-      <h1>{Title}</h1>
-
+      <h1>{title}</h1>
     {bodyEl}
   </div>;
 };
