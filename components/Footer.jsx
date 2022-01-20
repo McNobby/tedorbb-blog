@@ -1,6 +1,13 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 const Footer = () => {
+    const router = useRouter();
+
+    const sendToAdmin = () => {
+        router.push("/admin");
+    };
+
     return (
         <footer>
             <section>
@@ -26,9 +33,7 @@ const Footer = () => {
                     </a>
                 </div>
             </section>
-            <section>
-                <h1></h1>
-            </section>
+            <section onDoubleClick={sendToAdmin}>{/* Empty for now */}</section>
         </footer>
     );
 };
