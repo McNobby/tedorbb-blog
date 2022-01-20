@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import LoginProtection from '../../components/LoginProtection'
 import addDocToFB from '../../lib/addDocToFB'
 import styles from '../../styles/Home.module.scss'
 
@@ -39,21 +40,23 @@ const WritePage = () => {
     }
 
     return (
-        <div className={styles.container}>
-            <div className={styles.editor}>
-                <h1>Text editor</h1>
-                <input type="text" placeholder='Title' ref={title} />
-                <input type="text" placeholder='Thumbnail text' ref={thumbnail} />
-
-                {textEditors}
-                <button onClick={addP} >+ Add paragraph</button>
-                <select name="place" ref={collection}>
-                    <option value="interesser">Interesser</option>
-                    <option value="prosjekter">Prosjekter</option>
-                </select>
-                <button id={styles.submit} onClick={submit} >Save & post</button>
+        <LoginProtection>
+            <div className={styles.container}>
+                <div className={styles.editor}>
+                    <h1>Text editor</h1>
+                    <input type="text" placeholder='Title' ref={title} />
+                    <input type="text" placeholder='Thumbnail text' ref={thumbnail} />
+        
+                    {textEditors}
+                    <button onClick={addP} >+ Add paragraph</button>
+                    <select name="place" ref={collection}>
+                        <option value="interesser">Interesser</option>
+                        <option value="prosjekter">Prosjekter</option>
+                    </select>
+                    <button id={styles.submit} onClick={submit} >Save & post</button>
+                </div>
             </div>
-        </div>
+        </LoginProtection>
     )
 }
 
