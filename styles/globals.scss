@@ -1,21 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
 
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #ddd;
 }
 
-body{
+body {
     background-color: rgb(64, 68, 68);
 }
 
-
-.Mainpage{
+.Mainpage {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,39 +22,39 @@ body{
     flex-direction: column;
     padding: 20px;
     text-align: center;
-    h1{
-        font-size:2rem;
+    h1 {
+        font-size: 2rem;
         width: 100%;
     }
 }
 
-.pagePanel{
+.pagePanel {
     margin-top: 40px;
     height: 150px;
     width: 100%;
     display: flex;
     justify-content: center;
-    a{
+    a {
         text-decoration: none;
     }
 }
 
-nav{
+nav {
     height: 7vh;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    a{
+    a {
         text-decoration: none;
     }
-    button{
+    button {
         width: 100px;
         margin-top: 0;
         height: 60%;
     }
 }
 
-footer{
+footer {
     min-height: 30vh;
     margin-top: 50px;
     background-color: rgb(49, 53, 53);
@@ -63,18 +62,18 @@ footer{
     padding: 40px;
     padding: 40px 120px 40px 120px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(28vw, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 20px;
-    section{
+    section {
         width: 100%;
-        // background-color: green;
-        .wrap{
+        min-height: 30px;
+        .wrap {
             margin-top: 20px;
         }
     }
 }
 
-textarea{
+textarea {
     background-color: rgb(49, 53, 53);
     border: none;
     border-radius: 10px;
@@ -84,7 +83,7 @@ textarea{
     margin-top: 30px;
 }
 
-input{
+input {
     background-color: rgb(49, 53, 53);
     border: none;
     height: 50px;
@@ -92,7 +91,7 @@ input{
     padding-left: 20px;
 }
 
-button{
+button {
     width: 90%;
     background-color: rgb(49, 53, 53);
     border: none;
@@ -100,8 +99,13 @@ button{
     border-radius: 13px;
     transition: 0.3s;
     align-self: center;
-    &:hover{
+    &:hover {
         background-color: rgb(40, 43, 43);
+    }
+}
 
+@media screen and (orientation: portrait) {
+    footer {
+        padding: 50px;
     }
 }

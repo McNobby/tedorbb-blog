@@ -116,15 +116,28 @@
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (orientation: portrait) {
     .gridContainer {
         grid-template-columns: 1fr;
+    }
+    .container {
+        width: 97%;
+    }
+    .articleContainer {
+        width: 80%;
+    }
+    .article {
+        width: 100%;
+        p {
+            width: 100%;
+        }
     }
 }
 
 .login {
     height: 85vh;
-    width: 100%;
+    width: 90%;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
