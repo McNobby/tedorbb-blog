@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import { useEffect } from "react/cjs/react.development";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "../lib/FirebaseConf";
 
@@ -15,7 +14,7 @@ const LoginProtection = ({ children }) => {
                 router.push("/admin/login");
             }
         });
-    }, []);
+    }, [router.isReady]);
 
     return <>{children}</>;
 };

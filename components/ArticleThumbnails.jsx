@@ -49,8 +49,8 @@ const ArticleThumbnail = ({ site }) => {
 
     const list = data.map((e) => {
         return (
-            <motion.div variants={item}>
-                <Link href={`/${site}/${e.id}`} key={e.id}>
+            <motion.div variants={item} key={e.id}>
+                <Link href={`/${site}/${e.id}`}>
                     <div className={styles.gridElement}>
                         <h1>{e.data.title}</h1>
                         <p>{e.data.thumbnail}</p>

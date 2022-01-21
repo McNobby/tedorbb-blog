@@ -35,16 +35,26 @@ const PagePanel = () => {
             animate="show"
             exit="exit"
         >
-            <Link href="/interesser">
+            <Link href="/interesser" passHref>
                 <motion.div className={styles.pageBtn}>
-                    <Image src="/heart.svg" width={50} height={50} />
+                    <Image
+                        src="/heart.svg"
+                        width={50}
+                        height={50}
+                        alt="heart"
+                    />
                     <a>Interesser</a>
                 </motion.div>
             </Link>
 
-            <Link href="/prosjekter">
+            <Link href="/prosjekter" passHref>
                 <motion.div className={styles.pageBtn}>
-                    <Image src="/folder.svg" width={50} height={50} />
+                    <Image
+                        src="/folder.svg"
+                        width={50}
+                        height={50}
+                        alt="folder"
+                    />
                     <a>Prosjekter</a>
                 </motion.div>
             </Link>
