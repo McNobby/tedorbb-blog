@@ -31,7 +31,7 @@
     align-items: center;
     border-radius: 10px;
     background: center fixed url("/patch.png");
-    font-size: 40px;
+    font-size: 2em;
     h1 {
         color: rgb(255, 255, 255);
         text-shadow: 2px 0px 20px rgba(0, 0, 0, 0.61);
@@ -53,11 +53,18 @@
     align-content: center;
     text-align: center;
     padding: 30px;
+    transition: all 0.3s ;
     cursor: pointer;
     p {
         max-width: 50%;
         margin: auto;
         margin-top: 20px;
+    }
+    &:hover{
+        transform: scale(0.97);
+    }
+    &:active{
+        transform: scale(0.93);
     }
 }
 
@@ -69,7 +76,7 @@
 }
 
 .article {
-    h1 {
+    h1, h2 {
         text-align: center;
     }
 
@@ -161,5 +168,16 @@
                 background-color: rgb(79, 87, 87);
             }
         }
+    }
+}
+
+.inlineWrap{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    h2{
+        cursor: pointer;
+        position: absolute;
+        left: 0;
     }
 }
