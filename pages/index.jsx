@@ -25,6 +25,7 @@ const variants = {
 
 export default function Home() {
     return (
+        <div>
         <div className="Mainpage">
             <motion.h1
                 variants={variants}
@@ -34,8 +35,11 @@ export default function Home() {
             >
                 Teodor Berntsen Bøe
             </motion.h1>
-
             <PagePanel />
+        <img src="/bolger.svg" alt="" id="waves" />
+
+        </div>
+
         </div>
     );
 }
