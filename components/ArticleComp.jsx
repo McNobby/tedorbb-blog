@@ -2,8 +2,7 @@ import styles from "../styles/Home.module.scss";
 import React, { useState } from "react";
 import BackButton from "./backButton";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-
-const storage = getStorage();
+import { storage } from "../lib/FirebaseConf";
 
 const ImageFromFirebase = ({ image }) => {
     const [imagePath, setImagePath] = useState("");
