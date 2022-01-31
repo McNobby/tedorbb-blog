@@ -18,7 +18,10 @@ const WritePage = () => {
         };
 
         return (
+            <div className={styles.paragraph}>                
             <textarea name="paragraph" onKeyUp={keyUp} key={e.id}></textarea>
+            <input type="file" id="file" accept="image/png, image/jpeg" />
+            </div>
         );
     });
 
