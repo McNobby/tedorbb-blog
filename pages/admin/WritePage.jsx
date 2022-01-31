@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import LoginProtection from "../../components/LoginProtection";
+import Paragraph from "../../components/paragraph";
 import addDocToFB from "../../lib/addDocToFB";
 import styles from "../../styles/Home.module.scss";
 
@@ -13,16 +14,7 @@ const WritePage = () => {
     let text = [];
 
     const textEditors = paragraphs.map((e) => {
-        const keyUp = (ev) => {
-            text[e.id - 1] = ev.target.value;
-        };
-
-        return (
-            <div className={styles.paragraph}>                
-            <textarea name="paragraph" onKeyUp={keyUp} key={e.id}></textarea>
-            <input type="file" id="file" accept="image/png, image/jpeg" />
-            </div>
-        );
+        return <Paragraph id={e.id} key={e.id} />;
     });
 
     const addP = () => {
@@ -33,7 +25,7 @@ const WritePage = () => {
         const data = {
             title: title.current.value,
             thumbnail: thumbnail.current.value,
-            body: text,
+            body: JSON.parse(sessionStorage.getItem("body")),
         };
         console.log(text);
         addDocToFB(collection.current.value, data);

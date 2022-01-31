@@ -1,18 +1,41 @@
 import styles from "../styles/Home.module.scss";
-import React from "react";
+import React, { useState } from "react";
 import BackButton from "./backButton";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+
+const storage = getStorage();
+
+const ImageFromFirebase = ({ image }) => {
+    const [imagePath, setImagePath] = useState("");
+
+    if (image) {
+        console.log(image);
+        const storageRef = ref(storage, image);
+        getDownloadURL(storageRef).then((url) => {
+            console.log(url);
+            setImagePath(url);
+        });
+    }
+
+    return <img src={imagePath} alt="" />;
+};
 
 const ArticleComp = ({ info }) => {
     const { title, body, thumbnail } = info;
 
     const bodyEl = body.map((e) => {
-        return <p key={e}>{e}</p>;
+        return (
+            <div key={e.text} className={styles.paragraph}>
+                <p>{e.text}</p>
+                <ImageFromFirebase image={e.image} />
+            </div>
+        );
     });
 
     return (
         <div className={styles.article}>
             <div className={styles.inlineWrap}>
-                <BackButton/>
+                <BackButton />
                 <h1>{title}</h1>
             </div>
             <h2>{thumbnail}</h2>
