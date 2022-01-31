@@ -36,7 +36,6 @@ export default function Home() {
                 Teodor Berntsen Bøe
             </motion.h1>
             <PagePanel />
-        <img src="/bolger.svg" alt="" id="waves" />
 
         </div>
 
