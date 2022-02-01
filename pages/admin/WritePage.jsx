@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import LoginProtection from "../../components/LoginProtection";
-import Paragraph from "../../components/paragraph";
+import Paragraph from "../../components/admin/paragraph";
 import addDocToFB from "../../lib/addDocToFB";
 import styles from "../../styles/Home.module.scss";
 

@@ -1,4 +1,4 @@
-import Layout from "../components/layout";
+import Layout from "../components/common/layout";
 import "../styles/globals.scss";
 import { AnimatePresence } from "framer-motion";
 

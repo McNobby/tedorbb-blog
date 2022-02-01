@@ -1,8 +1,8 @@
-import PagePanel from "./pagePanel";
+import PagePanel from "../pagePanel";
 import react, { useEffect, useState } from "react";
 import Link from "next/link";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { app } from "../lib/FirebaseConf";
+import { app } from "../../lib/FirebaseConf";
 
 const Navbar = () => {
     const [loggedIn, setLoggedIn] = useState(false);

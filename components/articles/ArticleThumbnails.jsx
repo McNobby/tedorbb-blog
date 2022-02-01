@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/Home.module.scss";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import getCollection from "../lib/getCollection";
+import getCollection from "../../lib/getCollection";
 
 const variants = {
     hidden: { y: 100 },

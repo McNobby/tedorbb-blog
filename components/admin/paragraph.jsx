@@ -1,8 +1,8 @@
 import styles from "../styles/Home.module.scss";
 import React, { useRef } from "react";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { ref, uploadBytes } from "firebase/storage";
 import { v4 as uuidv4 } from "uuid";
-import { storage } from "../lib/FirebaseConf";
+import { storage } from "../../lib/FirebaseConf";
 
 const Paragraph = ({ id }) => {
     const image = useRef();
