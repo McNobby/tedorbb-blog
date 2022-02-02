@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { app } from "../lib/FirebaseConf";
+import { app } from "../../lib/FirebaseConf";
 
 const LoginProtection = ({ children }) => {
     const router = useRouter();

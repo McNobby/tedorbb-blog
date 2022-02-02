@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import LoginProtection from "../../components/LoginProtection";
+import LoginProtection from "../../components/admin/LoginProtection";
 import styles from "../../styles/Home.module.scss";
 
 const Admin = () => {

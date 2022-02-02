@@ -1,32 +1,17 @@
-import styles from "../styles/Home.module.scss";
+import styles from "../../styles/Home.module.scss";
 import React, { useState } from "react";
 import BackButton from "../backButton";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { storage } from "../../lib/FirebaseConf";
 
-const ImageFromFirebase = ({ image }) => {
-    const [imagePath, setImagePath] = useState("");
-
-    if (image) {
-        console.log(image);
-        const storageRef = ref(storage, image);
-        getDownloadURL(storageRef).then((url) => {
-            console.log(url);
-            setImagePath(url);
-        });
-    }
-
-    return <img src={imagePath} alt="" />;
-};
+import ShowImage from "./ShowImage";
 
 const ArticleComp = ({ info }) => {
-    const { title, body, thumbnail } = info;
+    const { title, body, thumbnail, thumbnailImg } = info;
 
     const bodyEl = body.map((e) => {
         return (
             <div key={e.text} className={styles.paragraph}>
                 <p>{e.text}</p>
-                <ImageFromFirebase image={e.image} />
+                <ShowImage image={e.image} alt={""} />
             </div>
         );
     });
@@ -37,6 +22,7 @@ const ArticleComp = ({ info }) => {
                 <BackButton />
                 <h1>{title}</h1>
             </div>
+            <ShowImage image={thumbnailImg} />
             <h2>{thumbnail}</h2>
             {bodyEl}
         </div>

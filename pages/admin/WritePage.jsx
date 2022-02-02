@@ -1,17 +1,24 @@
 import React, { useRef, useState } from "react";
-import LoginProtection from "../../components/LoginProtection";
+import LoginProtection from "../../components/admin/LoginProtection";
 import Paragraph from "../../components/admin/paragraph";
 import addDocToFB from "../../lib/addDocToFB";
 import styles from "../../styles/Home.module.scss";
+import { v4 as uuidv4 } from "uuid";
+import { storage } from "../../lib/FirebaseConf";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const WritePage = () => {
     const [paragraphs, setParagraphs] = useState([{ id: 1 }]);
+    const [thumbImg, setThumbImg] = useState(``);
+    const [imageUrl, setImageUrl] = useState("");
+
+    const imageName = uuidv4();
+    const image = useRef();
+    const storageRef = ref(storage, `images/${imageName}`);
 
     const title = useRef(null);
     const thumbnail = useRef(null);
     const collection = useRef(null);
-
-    let text = [];
 
     const textEditors = paragraphs.map((e) => {
         return <Paragraph id={e.id} key={e.id} />;
@@ -21,13 +28,23 @@ const WritePage = () => {
         setParagraphs([...paragraphs, { id: paragraphs.length + 1 }]);
     };
 
+    const uploadImage = () => {
+        uploadBytes(storageRef, image.current.files[0]).then((snapshot) => {
+            setThumbImg(`images/${imageName}`);
+            console.log(`uploaded image ${imageName}`);
+            getDownloadURL(snapshot.metadata.ref).then((url) => {
+                setImageUrl(url);
+            });
+        });
+    };
+
     const submit = () => {
         const data = {
             title: title.current.value,
             thumbnail: thumbnail.current.value,
+            thumbnailImg: thumbImg,
             body: JSON.parse(sessionStorage.getItem("body")),
         };
-        console.log(text);
         addDocToFB(collection.current.value, data);
     };
 
@@ -42,6 +59,15 @@ const WritePage = () => {
                         placeholder="Thumbnail text"
                         ref={thumbnail}
                     />
+                    <h4>Upload thumbnail:</h4>
+                    <input
+                        type="file"
+                        name="file"
+                        id="file"
+                        ref={image}
+                        onChange={uploadImage}
+                    />
+                    <img src={imageUrl} alt="" />
 
                     {textEditors}
                     <button onClick={addP}>+ Add paragraph</button>

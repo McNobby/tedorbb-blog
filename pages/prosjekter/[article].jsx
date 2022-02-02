@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import styles from "../../styles/Home.module.scss";
 import db from "../../lib/FirebaseConf";
 import { getDoc, doc } from "firebase/firestore";
-import ArticleComp from "../../components/ArticleComp";
+import ArticleComp from "../../components/articles/ArticleComp";
 import { motion } from "framer-motion";
 
 const variants = {

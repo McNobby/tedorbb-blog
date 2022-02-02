@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import styles from "../styles/Home.module.scss";
+import styles from "../../styles/Home.module.scss";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import getCollection from "../../lib/getCollection";
+import getImageUrl from "../../lib/getImageUrl";
+import Thumbnail from "./thumbnail";
 
 const variants = {
     hidden: { y: 100 },
@@ -48,14 +50,11 @@ const ArticleThumbnail = ({ site }) => {
     };
 
     const list = data.map((e) => {
+        const url = getImageUrl(e.thmbnailImg);
+
         return (
             <motion.div variants={item} key={e.id}>
-                <Link href={`/${site}/${e.id}`}>
-                    <div className={styles.gridElement}>
-                        <h1>{e.data.title}</h1>
-                        <p>{e.data.thumbnail}</p>
-                    </div>
-                </Link>
+                <Thumbnail data={e} site={site} />
             </motion.div>
         );
     });
@@ -67,9 +66,7 @@ const ArticleThumbnail = ({ site }) => {
             inital="hidden"
             animate="show"
             exit="exit"
-        >
-            {list}
-        </div>
+        ></div>
     );
 };
 
