@@ -1,32 +1,60 @@
 import Image from "next/image";
-import React from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import ArticleList from "../components/articles/ArticleList";
+import getImageUrl from "../lib/GetImageUrl";
 import pocketbase from "../lib/PocketBase";
 import styles from "../styles/category.module.scss";
 
-export const getServerSideProps = async (context) => {
-  const categoryData = await pocketbase.records.getOne(
-    "categories",
-    context.query.category
-  );
+// export const getServerSideProps = async (context) => {
+//   const categoryData = await pocketbase.records.getOne(
+//     "categories",
+//     context.query.category
+//   );
 
-  const resultList = await pocketbase.records.getList("posts", 1, 50, {
-    filter: `category.id = "${categoryData.id}" && published = true`,
-  });
+//   const resultList = await pocketbase.records.getList("posts", 1, 50, {
+//     filter: `category.id = "${categoryData.id}" && published = true`,
+//   });
 
-  return {
-    props: {
-      categoryData: JSON.stringify(categoryData),
-      articleList: JSON.stringify(resultList.items),
-    },
+//   return {
+//     props: {
+//       categoryData: JSON.stringify(categoryData),
+//       articleList: JSON.stringify(resultList.items),
+//     },
+//   };
+// };
+
+// getServersideProps was called when browser queried for sw.js which caused errors
+
+const Category = () => {
+  // categoryData = JSON.parse(categoryData);
+  // articleList = JSON.parse(articleList);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const [categoryData, setCategoryData] = useState({});
+  const [articleList, setArticleList] = useState([]);
+
+  const router = useRouter();
+
+  const getData = async () => {
+    const categoryData = await pocketbase.records.getOne(
+      "categories",
+      router.asPath.split("/")[1]
+    );
+
+    setCategoryData(categoryData);
+
+    const resultList = await pocketbase.records.getList("posts", 1, 50, {
+      filter: `category.id = "${categoryData.id}" && published = true`,
+    });
+
+    setArticleList(resultList.items);
   };
-};
 
-const Category = ({ categoryData, articleList }) => {
-  categoryData = JSON.parse(categoryData);
-  articleList = JSON.parse(articleList);
-
-  const imgUrl = `${process.env.DB_URL}/api/files/categories/${categoryData.id}/${categoryData.header_image}`;
+  const imgUrl = getImageUrl(categoryData.id, categoryData.header_image);
 
   const myLoader = ({ src, width, quality }) => {
     return imgUrl;

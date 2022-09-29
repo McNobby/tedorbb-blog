@@ -1,6 +1,6 @@
 import React from "react";
 
-const ArticleList = ({ articles }) => {
+const ArticleList = ({ articles = [] }) => {
   return (
     <div>
       {articles.map((e) => {
